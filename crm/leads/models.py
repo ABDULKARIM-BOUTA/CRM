@@ -15,7 +15,8 @@ class Client(models.Model): #this class stores the records of clients
     source_options = (
         ('1', 'Internet'),
         ('2', 'Newsletter'),
-        ('3', 'TV')
+        ('3', 'TV'),
+        ('4', 'Other')
     )
 
     first_name = models.CharField(max_length=40)
