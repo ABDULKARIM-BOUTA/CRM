@@ -1,0 +1,13 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+<h2>Update Client</h2>
+<a href="{% url 'leads:lead-detail' client.pk %}">Back</a>
+<form method="post" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>
+    <button type="submit" class="btn-primary">Submit</button>
+    </p>
+</form>
+{% endblock %}
