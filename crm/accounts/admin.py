@@ -4,9 +4,9 @@ from accounts.models import User
 from django.utils.translation import gettext_lazy as _
 
 # Register your models here.
-class CRM_UserAdmin(UserAdmin):
+class BaseUserAdmin(UserAdmin):
     fieldsets = (
-        (None, {"fields": ("email", "password")}),
+        (None, {"fields": ("email", 'username',"password" )}),
         (_("Personal info"), {"fields": ("first_name", "last_name")}),
         (
             _("Permissions"),
@@ -35,4 +35,4 @@ class CRM_UserAdmin(UserAdmin):
     search_fields = ("email", "first_name", "last_name")
     ordering = ("email",)
 
-admin.site.register(User, CRM_UserAdmin)
+admin.site.register(User, BaseUserAdmin)

@@ -9,7 +9,7 @@ class Agent(models.Model):
     age = models.IntegerField()
 
     def __str__(self):
-        return self.user.email
+        return self.user.username
 
 class Client(models.Model): #this class stores the records of clients
     source_options = (

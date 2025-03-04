@@ -19,18 +19,18 @@
         <path d="M5 12h14M12 5l7 7-7 7"></path>
     </button></a>
 
-    <button  class=" mr-1 inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" style="background-color:#ee0000">{{ request.user.email }}
+    <a href="#"><button  class=" mr-1 inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" style="background-color:#ee0000">{{ request.user.username }}
         <path d="M5 12h14M12 5l7 7-7 7"></path>
-    </button>
+    </button></a>
 
     {% else %}
       <nav class="md:ml-auto md:mr- flex flex-wrap items-center text-base justify-center"></nav>
 
-    <a href=#><button   class=" mr-1 inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" style="background-color:#ee0000">Sign Up
+    <a href="{% url 'account_signup' %}"><button   class=" mr-1 inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" style="background-color:#ee0000">Sign Up
         <path d="M5 12h14M12 5l7 7-7 7"></path>
     </button></a>
 
-      <a href="{% url 'login' %}"><button   class="  inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" style="background-color:#ee0000">Log In
+      <a href="{% url 'account_login' %}"><button   class="  inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" style="background-color:#ee0000">Log In
         <path d="M5 12h14M12 5l7 7-7 7"></path>
     </button></a>
 
