@@ -1,7 +1,4 @@
 from django.contrib import admin
-from leads.models import Agent, Client, UserProfile
-
+from leads.models import Client
 # Register your models here.
-admin.site.register(Agent)
 admin.site.register(Client)
-admin.site.register(UserProfile)
