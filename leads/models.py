@@ -1,15 +1,11 @@
 from django.db import models
 from django.core.validators import MinValueValidator,MaxValueValidator
-from accounts.models import User
-
+from accounts.models import User, UserProfile
+from django.db.models.signals import post_save
+from agents.models import Agent
 # Create your models here.
 
-class Agent(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    age = models.IntegerField()
-
-    def __str__(self):
-        return self.user.username
+# this class helps to manage agents and clients under single portfolio
 
 class Client(models.Model): #this class stores the records of clients
     source_options = (
@@ -31,6 +27,13 @@ class Client(models.Model): #this class stores the records of clients
     files = models.FileField(blank=True, null=True)
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
 
-
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
+
+
+def post_create_user_signal(sender, created, instance, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+post_save.connect(post_create_user_signal, sender=User)
+

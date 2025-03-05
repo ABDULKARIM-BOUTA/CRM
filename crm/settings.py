@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'leads',
     'allauth',
     'allauth.account',
+    'agents'
 ]
 
 MIDDLEWARE = [
@@ -151,4 +152,5 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 ACCOUNT_LOGIN_METHODS = {'email', 'username'}
+
 ACCOUNT_EMAIL_REQUIRED = True
