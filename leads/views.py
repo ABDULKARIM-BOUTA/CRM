@@ -3,17 +3,18 @@ from django.core.mail import send_mail
 from leads.models import Agent, Client
 from leads.forms import ClientForm
 from django.views.generic import TemplateView, ListView, DetailView, DeleteView, CreateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
-class LeadDeleteView(DeleteView):
+class LeadDeleteView(LoginRequiredMixin, DeleteView):
     queryset = Client.objects.all()
     template_name = 'lead/lead_delete.html'
 
     def get_success_url(self):
         return reverse('leads:lead-list')
 
-class LeadUpdateView(UpdateView):
+class LeadUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'lead/lead_update.html'
     form_class = ClientForm
     queryset = Client.objects.all()
@@ -21,7 +22,7 @@ class LeadUpdateView(UpdateView):
     def get_success_url(self):
         return reverse('leads:lead-detail', args=[self.object.pk])
 
-class LeadCreateView(CreateView):
+class LeadCreateView(LoginRequiredMixin, CreateView):
     template_name = 'lead/lead_form.html'
     form_class = ClientForm
 
@@ -40,10 +41,10 @@ class LeadCreateView(CreateView):
 class LandingPageView(TemplateView):
     template_name = 'partials/landing_page.html'
 
-class LeadListView(ListView):
+class LeadListView(LoginRequiredMixin, ListView):
     template_name = 'lead/lead_list.html'
     queryset = Client.objects.all()
 
-class LeadDetailView(DetailView):
+class LeadDetailView(LoginRequiredMixin, DetailView):
     template_name = 'lead/lead_detail.html'
     queryset = Client.objects.all()
