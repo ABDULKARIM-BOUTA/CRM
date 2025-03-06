@@ -1,0 +1,25 @@
+{% extends 'partials/base.html' %}
+    {% block content %}
+
+<section class=" mr-40 text-white  body-font">
+  <div class=" container px-5 py-24 mx-auto">
+    <div class="flex items-center lg:w-2/3 mx-auto  mb-10  sm:flex-row flex-col">
+      <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-red-400 bg-gray-800 flex-shrink-0">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="sm:w-16 sm:h-16 w-10 h-10" viewBox="0 0 24 24">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
+      </div>
+      <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+        <h2 class="text-white text-lg title-font font-medium mb-3" style="font-weight:bold">{{agent.user.first_name}} {{agent.user.last_name}}</h2>
+
+          <div class="flex border-t border-gray-800 py-2">
+          <span class="text-black">username</span>
+          <span class="ml-auto text-white">{{agent.user.username}}</span>
+        </div>
+
+         <a href="{% url 'agents:agent-update' agent.pk %}"><button class="inline-flex mt-10 ml-auto text-white bg-red-800 border-0 py-2 px-5 focus:outline-none hover:bg-red-600 rounded">Update </button></a>
+         <a href="{% url 'agents:agent-delete' agent.pk %}"><button class="inline-flex mt-10 ml-auto text-white bg-red-800 border-0 py-2 px-5 focus:outline-none hover:bg-red-600 rounded">Delete</button></a>
+      </div>
+    </div>
+</section>
+{% endblock %}

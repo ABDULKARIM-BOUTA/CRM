@@ -10,8 +10,8 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
 
-# this class helps to manage agents and clients under single portfolio
-class UserProfile(models.Model):
+# this class helps to manage agent and clients under single portfolio
+class Organization(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -20,7 +20,7 @@ class UserProfile(models.Model):
 
 def post_create_user_signal(sender, created, instance, **kwargs):
     if created:
-        UserProfile.objects.create(user=instance)
+        Organization.objects.create(user=instance)
 
 post_save.connect(post_create_user_signal, sender=User)
 

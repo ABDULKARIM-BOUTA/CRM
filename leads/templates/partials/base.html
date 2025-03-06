@@ -6,10 +6,12 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <div style="background-color:#ad0c09">
+    <div class="flex flex-col min-h-screen justify-between" style="background-color:#ad0c09">
     {% include 'partials/header.html' %}
+      <main class="mb-auto h-10">
       {% block content %}
       {% endblock %}
+      </main>
       {% include 'partials/footer.html' %}
     </div>
   </body>

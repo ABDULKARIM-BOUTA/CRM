@@ -38,9 +38,6 @@ class LeadCreateView(LoginRequiredMixin, CreateView):
         )
         return super(LeadCreateView, self).form_valid(form)
 
-class LandingPageView(TemplateView):
-    template_name = 'partials/landing_page.html'
-
 class LeadListView(LoginRequiredMixin, ListView):
     template_name = 'lead/lead_list.html'
     queryset = Client.objects.all()
@@ -48,3 +45,6 @@ class LeadListView(LoginRequiredMixin, ListView):
 class LeadDetailView(LoginRequiredMixin, DetailView):
     template_name = 'lead/lead_detail.html'
     queryset = Client.objects.all()
+
+class LandingPageView(TemplateView):
+    template_name = 'partials/landing_page.html'

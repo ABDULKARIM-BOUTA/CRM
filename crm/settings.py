@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'leads',
     'allauth',
     'allauth.account',
-    'agents'
+    'agents',
+
 ]
 
 MIDDLEWARE = [
