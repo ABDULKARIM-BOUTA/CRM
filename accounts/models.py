@@ -6,7 +6,7 @@ from django.db.models.signals import post_save
 
 class User(AbstractUser):
     # if you sign up you will automatically set as an organizor by default,
-    # and if you add an agent that agent's account will be set as agent
+    # and if you add an agent that agent's account will be set as agent by default
     is_organizor = models.BooleanField(default=True)
     is_agent = models.BooleanField(default=False)
 

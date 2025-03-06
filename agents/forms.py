@@ -1,9 +1,13 @@
 from django import forms
-from agents.models import Agent
+from accounts.models import User
 
 class AgentForm(forms.ModelForm):
     class Meta:
-        model = Agent
-        fields = {
-            'user'
-        }
+        model = User
+        fields =  [
+            'email',
+            'username',
+            'first_name',
+            'last_name',
+
+        ]

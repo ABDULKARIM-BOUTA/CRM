@@ -24,10 +24,8 @@ class Client(models.Model): #this class stores the records of clients
     age = models.IntegerField(validators=[MinValueValidator(18), MaxValueValidator(120)])
     files = models.FileField(blank=True, null=True)
 
-    agent = models.ForeignKey(Agent, on_delete=models.SET_NULL, null=True, blank=True)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
-
+    agent = models.ForeignKey(Agent, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
-
