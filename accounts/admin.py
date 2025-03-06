@@ -15,6 +15,8 @@ class BaseUserAdmin(UserAdmin):
                     "is_active",
                     "is_staff",
                     "is_superuser",
+                    'is_organizor',
+                    'is_agent',
                     "groups",
                     "user_permissions",
                 )

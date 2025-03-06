@@ -42,6 +42,10 @@ class LeadListView(LoginRequiredMixin, ListView):
     template_name = 'lead/lead_list.html'
     queryset = Client.objects.all()
 
+'''    def get_queryset(self):
+        agent = self.request.user.agent
+        return Client.objetcs.filter(agent=agent)
+'''
 class LeadDetailView(LoginRequiredMixin, DetailView):
     template_name = 'lead/lead_detail.html'
     queryset = Client.objects.all()

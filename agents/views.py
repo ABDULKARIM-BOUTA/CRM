@@ -1,12 +1,12 @@
 from django.shortcuts import reverse
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
 from agents.forms import AgentForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from agents.mixins import LoginAndOrganizorRequiredMixin
 from agents.models import Agent
 
 # Create your views here.
 
-class AgentListView(LoginRequiredMixin, ListView):
+class AgentListView(LoginAndOrganizorRequiredMixin, ListView):
     template_name = 'agent/agent_list.html'
 
     # to show agents related only to the user
@@ -14,7 +14,7 @@ class AgentListView(LoginRequiredMixin, ListView):
         organization = self.request.user.organization
         return Agent.objects.filter(organization=organization)
 
-class AgentCreateView(LoginRequiredMixin, CreateView):
+class AgentCreateView(LoginAndOrganizorRequiredMixin, CreateView):
     form_class = AgentForm
     template_name = 'agent/agent_form.html'
 
@@ -28,7 +28,7 @@ class AgentCreateView(LoginRequiredMixin, CreateView):
         agent.save()
         return super(AgentCreateView, self).form_valid(form)
 
-class AgentDetailView(LoginRequiredMixin, DetailView):
+class AgentDetailView(LoginAndOrganizorRequiredMixin, DetailView):
     template_name = 'agent/agent_detail.html'
 
     def get_queryset(self):
@@ -36,7 +36,7 @@ class AgentDetailView(LoginRequiredMixin, DetailView):
         return Agent.objects.filter(organization=organization)
 
 
-class AgentDeleteView(LoginRequiredMixin, DeleteView):
+class AgentDeleteView(LoginAndOrganizorRequiredMixin, DeleteView):
     template_name = 'agent/agent_delete.html'
 
     def get_success_url(self):
@@ -46,7 +46,7 @@ class AgentDeleteView(LoginRequiredMixin, DeleteView):
         organization = self.request.user.organization
         return Agent.objects.filter(organization=organization)
 
-class AgentUpdateView(LoginRequiredMixin, UpdateView):
+class AgentUpdateView(LoginAndOrganizorRequiredMixin, UpdateView):
     form_class = AgentForm
     template_name = 'agent/agent_update.html'
 
