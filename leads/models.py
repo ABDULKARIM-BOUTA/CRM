@@ -27,7 +27,7 @@ class Client(models.Model): #this class stores the records of clients
 
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE) # If an organization got deleted all clients under that organization will be deleted
     agent = models.ForeignKey(Agent, on_delete=models.SET_NULL, null=True, blank=True) # If an agent got deleted all clients under that agent will be set to null
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True) # If a category got deleted all clients under that category will be set to null
+    category = models.ForeignKey(Category, related_name='clients', on_delete=models.SET_NULL, null=True, blank=True) # If a category got deleted all clients under that category will be set to null
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
