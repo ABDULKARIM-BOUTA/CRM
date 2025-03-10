@@ -11,11 +11,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('leads/', include('leads.urls', namespace='leads')),
     path('agents/', include('agents.urls', namespace='agents')),
+    path('categories/', include('categories.urls'), name='categories'),
+    path('accounts/', include('allauth.urls')),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('accounts/', include('allauth.urls')),
     path('', LandingPageView.as_view(), name='landing-page'),
-
 ]
 
 if settings.DEBUG:

@@ -16,7 +16,7 @@ class LeadDeleteView(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         user = self.request.user
 
-        # organization only see their clients
+        # organizations only see their clients
         if user.is_organizor:
             queryset = Client.objects.filter(organization__user=user)
 
@@ -37,7 +37,7 @@ class LeadUpdateView(LoginRequiredMixin, UpdateView):
     def get_queryset(self):
         user = self.request.user
 
-        # organization only see their clients
+        # organizations only see their clients
         if user.is_organizor:
             queryset = Client.objects.filter(organization__user=user)
 
@@ -69,7 +69,7 @@ class LeadListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         user = self.request.user
 
-        # organization only see their clients
+        # organizations only see their clients
         if user.is_organizor:
             queryset = Client.objects.filter(organization__user=user)
 
@@ -85,7 +85,7 @@ class LeadDetailView(LoginRequiredMixin, DetailView):
     def get_queryset(self):
         user = self.request.user
 
-        # organization only see their clients
+        # organizations only see their clients
         if user.is_organizor:
             queryset = Client.objects.filter(organization__user=user)
 
