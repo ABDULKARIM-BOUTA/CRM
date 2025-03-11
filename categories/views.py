@@ -10,28 +10,6 @@ class CategoryListView(LoginRequiredMixin, ListView):
     template_name = 'category/category_list.html'
     queryset = Category.objects.all()
 
-    def get_queryset(self):
-        user = self.request.user
-
-        # organizations only see their clients
-        if user.is_organizor:
-            queryset = Category.objects.filter(organization__user=user)
-
-        # agents only see their clients
-        return queryset
-
-    # To count unassigned clients
-    def get_context_data(self, **kwargs):
-        context = super(CategoryListView, self).get_context_data(**kwargs)
-        user = self.request.user
-
-        # organizations only see their clients
-        if user.is_organizor:
-            queryset = Client.objects.filter(organization__user=user)
-
-        # agents only see their clients
-        context.update({'unassigned_clients_count': queryset.filter(category=None).count()})
-        return context
 
 class CategoryDetailView(LoginRequiredMixin, DetailView):
     template_name = 'category/category_detail.html'
@@ -56,7 +34,7 @@ class CategoryDetailView(LoginRequiredMixin, DetailView):
         if user.is_organizor:
             queryset = Client.objects.filter(organization__user=user)
 
-        clients = self.get_object().clients.all()  # using the related name of the category FK
+        clients = self.get_object().clients.all()  # using the related name of the category FK. #get_object()can only be used in Detail
         context.update({'clients': clients})
 
         return context
