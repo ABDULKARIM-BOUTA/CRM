@@ -23,6 +23,7 @@ class AgentCreateView(LoginAndOrganizorRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('agents:agent-list')
+        #return reverse('agents:agent-detail', args=[self.object.pk])
 
     # when an agent is add by the organization, an agent user is automatically created
     def form_valid(self, form):
