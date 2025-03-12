@@ -1,16 +1,21 @@
-{%extends 'partials/base.html'%}
-
-{%block content%}
-<div class="center">
-	<form method="post" class="card">
-		{% csrf_token %}
-		<h2>Delete Client</h2>
-		<p>Are you sure that you want to delete the client?</p>
-		<p class="form-buttons">
-			<input type="submit" class="btn btn-primary" value="Confirm">
-			<a href="{% url 'leads:lead-detail' client.pk %}" class="btn btn-outline">Cancel</a>
-		</p>
-	</form>
+{% extends 'partials/base.html' %}
+{% load tailwind_filters %}
+    {% block content %}
+<div class="max-w-sm mx-auto text-white">
+    <br>
+    <h2 class="sm:text-3xl text-2xl font-medium">Delete Client</h2>
+	<br>
+        <br>
+    <p class="sm:text-xl text-xl font-medium">Do you want to delete the Client?</p>
+	<form method="post" >
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="w-47.25 text-white bg-green-600 hover:bg-green-800 px-1 py-2 rounded-md">Submit
+        </button>
+            <a href="{% url 'leads:lead-detail' client.pk %}" class="btn btn-secondary">
+        <button type="button" class="mt-2 w-47.5 text-white bg-blue-600 hover:bg-blue-800 px-1 py-2 rounded-md">Cancel
+    </button>
+            </a>
+    </form>
 </div>
-
-{%endblock content%}
+    {% endblock %}

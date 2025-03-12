@@ -1,13 +1,18 @@
 {% extends 'partials/base.html' %}
-
-{% block content %}
-<h2>Update Client</h2>
-<form method="post" >
-    {% csrf_token %}
-    {{ form.as_p }}
-		<p class="form-buttons">
-			<input type="submit" class="btn btn-primary" value="Confirm">
-			<a href="{% url 'leads:lead-detail' client.pk %}" class="btn btn-outline">Cancel</a>
-		</p>
-</form>
-{% endblock %}
+{% load tailwind_filters %}
+    {% block content %}
+<div class="max-w-sm mx-auto text-white py-8">
+    <h2 class="sm:text-3xl text-2xl font-medium">Update Agent</h2>
+	<br>
+	<form method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="w-47.25 text-white px-1 py-2 rounded-md bg-green-600 hover:bg-green-800">Submit
+        </button>
+        <a href="{% url 'leads:lead-detail' client.pk %}">
+        <button type="button" class="mt-2 w-47.5 text-white px-1 py-2 rounded-md bg-blue-600 hover:bg-blue-800">Cancel
+    </button>
+            </a>
+    </form>
+</div>
+    {% endblock %}
