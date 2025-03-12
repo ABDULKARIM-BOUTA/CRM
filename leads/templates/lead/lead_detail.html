@@ -1,6 +1,8 @@
 {% extends 'partials/base.html' %}
     {% block content %}
 
+<title>{{client.first_name|title}} {{client.last_name|title}}</title>
+
 <section class=" mr-40 text-white  body-font">
   <div class=" container px-5 py-24 mx-auto">
     <div class="flex items-center lg:w-2/3 mx-auto  mb-10  sm:flex-row flex-col">
@@ -10,7 +12,7 @@
         </svg>
       </div>
       <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-        <h2 class="text-white text-lg title-font font-medium mb-3" style="font-weight:bold">{{client.first_name}} {{client.last_name}}</h2>
+        <h2 class="text-white text-lg title-font font-medium mb-3" style="font-weight:bold">{{client.first_name|title}} {{client.last_name|title}}</h2>
 
           <div class="flex border-t border-gray-800 py-2">
           <span class="text-black">Email</span>

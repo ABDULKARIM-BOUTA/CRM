@@ -6,13 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="900c25d6-8b6f-4fc7-a03b-bea861686e2d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/templates/agent/agent_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/agents/templates/agent/agent_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/templates/category/category_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/categories/templates/category/category_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/templates/category/category_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/categories/templates/category/category_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/templates/category/category_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/categories/templates/category/category_update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leads/templates/lead/lead_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/leads/templates/lead/lead_delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leads/templates/lead/lead_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/leads/templates/lead/lead_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leads/templates/lead/lead_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/leads/templates/lead/lead_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leads/templates/lead/lead_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/leads/templates/lead/lead_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/templates/partials/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/leads/templates/partials/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/templates/partials/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/leads/templates/partials/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leads/templates/lead/lead_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/leads/templates/lead/lead_update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
