@@ -1,25 +1,25 @@
-{% extends "account/base_manage.html" %}
-{% load allauth i18n %}
-{% block head_title %}
-    {% trans "Sign Out" %}
-{% endblock head_title %}
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign Out" %}
-    {% endelement %}
-    {% element p %}
-        {% trans 'Are you sure you want to sign out?' %}
-    {% endelement %}
-    {% url 'account_logout' as action_url %}
-    {% element form method="post" action=action_url no_visible_fields=True %}
-        {% slot body %}
-            {% csrf_token %}
-            {{ redirect_field }}
-        {% endslot %}
-        {% slot actions %}
-            {% element button type="submit" %}
-                {% trans 'Sign Out' %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
-{% endblock content %}
+
+<div class=" container max-w-sm mx-auto text-white py-8">
+
+    <h2 class="sm:text-3xl text-2xl font-medium ">Log Out</h2>
+	    <br>
+        <br>
+    <form method="post">
+        <p>Are you sure you want to log out?</p>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+
+       <button type="submit" class="w-47.25 text-white bg-green-600 hover:bg-green-800 px-1 py-2 rounded-md">Log Out
+        </button>
+            <a href="{{request.META.HTTP_REFERER|escape}}" class="btn btn-secondary">
+        <button type="button" class="mt-2 w-47.5 text-white bg-blue-600 hover:bg-blue-800 px-1 py-2 rounded-md">Cancel
+    </button>
+            </a>
+     </form>
+    </div>
+{% endblock %}
