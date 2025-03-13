@@ -5,76 +5,167 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="900c25d6-8b6f-4fc7-a03b-bea861686e2d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/account/account_inactive.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/base_confirm_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/base_entrance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/base_manage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/base_manage_email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/base_manage_password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/base_manage_phone.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/base_reauthenticate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/confirm_email_verification_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/confirm_login_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/confirm_password_reset_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/confirm_phone_verification_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/account_already_exists_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/account_already_exists_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/base_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/base_notification.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/email_changed_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/email_changed_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirm_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirm_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirmation_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirmation_signup_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirmation_signup_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirmation_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/email_deleted_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/email_deleted_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/login_code_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/login_code_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/password_changed_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/password_changed_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/password_reset_code_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/password_reset_code_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/password_reset_key_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/password_reset_key_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/password_reset_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/password_reset_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/password_set_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/password_set_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/unknown_account_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email/unknown_account_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email_change.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/email_confirm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/logout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/cannot_delete_primary_email.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/email_confirmation_failed.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/email_confirmation_sent.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/email_confirmed.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/email_deleted.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/logged_in.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/logged_out.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/login_code_sent.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/password_changed.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/password_set.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/primary_email_set.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/messages/unverified_primary_email.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/password_change.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/password_reset.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_from_key.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_from_key_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/password_set.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/phone_change.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/reauthenticate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/request_login_code.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/signup_by_passkey.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/signup_closed.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/snippets/already_logged_in.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/snippets/warn_no_email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/verification_sent.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/verified_email_required.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/alert.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/badge.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/button.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/button_group.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/field.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/fields.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/h1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/h2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/hr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/img.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/p.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/panel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/provider.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/provider_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/tbody.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/td.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/th.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/thead.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/tr.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/layouts/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/layouts/entrance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/allauth/layouts/manage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/authenticate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/base_entrance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/base_manage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/email/recovery_codes_generated_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/email/recovery_codes_generated_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/email/totp_activated_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/email/totp_activated_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/email/totp_deactivated_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/email/totp_deactivated_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/email/webauthn_added_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/email/webauthn_added_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/email/webauthn_removed_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/email/webauthn_removed_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/messages/recovery_codes_generated.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/messages/totp_activated.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/messages/totp_deactivated.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/messages/webauthn_added.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/messages/webauthn_removed.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/reauthenticate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/recovery_codes/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/recovery_codes/download.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/recovery_codes/generate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/recovery_codes/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/totp/activate_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/totp/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/totp/deactivate_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/webauthn/add_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/webauthn/authenticator_confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/webauthn/authenticator_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/webauthn/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/webauthn/edit_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/webauthn/reauthenticate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/webauthn/signup_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/webauthn/snippets/login_script.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mfa/webauthn/snippets/scripts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/openid/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/openid/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/authentication_error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/base_entrance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/base_manage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/connections.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/email/account_connected_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/email/account_connected_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/email/account_disconnected_message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/email/account_disconnected_subject.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/login_cancelled.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/login_redirect.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/messages/account_connected.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/messages/account_connected_other.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/messages/account_connected_updated.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/messages/account_disconnected.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/snippets/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/snippets/login_extra.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/socialaccount/snippets/provider_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/tests/test_403_csrf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/usersessions/base_manage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/usersessions/messages/sessions_logged_out.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/usersessions/usersession_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/account_inactive.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/base_entrance.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/base_manage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/base_manage_email.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/base_manage_password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/base_reauthenticate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/confirm_email_verification_code.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/confirm_login_code.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/account_already_exists_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/account_already_exists_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/base_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/base_notification.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/email_changed_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/email_changed_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/email_confirm_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/email_confirm_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/email_confirmation_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/email_confirmation_signup_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/email_confirmation_signup_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/email_confirmation_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/email_deleted_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/email_deleted_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/login_code_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/login_code_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/password_changed_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/password_changed_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/password_reset_key_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/password_reset_key_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/password_reset_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/password_reset_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/password_set_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/password_set_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/unknown_account_message.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email/unknown_account_subject.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email_change.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/email_confirm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/logout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/cannot_delete_primary_email.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/email_confirmation_failed.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/email_confirmation_sent.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/email_confirmed.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/email_deleted.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/logged_in.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/logged_out.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/login_code_sent.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/password_changed.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/password_set.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/primary_email_set.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/messages/unverified_primary_email.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/password_change.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/password_reset.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/password_reset_done.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/password_reset_from_key.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/password_reset_from_key_done.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/password_set.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/reauthenticate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/request_login_code.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/signup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/signup_by_passkey.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/signup_closed.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/snippets/already_logged_in.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/snippets/warn_no_email.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/verification_sent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/account/verified_email_required.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/registration/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/registration/logout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/registration/signup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crm/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,20 +194,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Kareem/Desktop/CRM_Project/leads/templates/lead&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Kareem/Desktop/CRM_Project/templates/account",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Kareem\Desktop\CRM_Project\templates\account" />
+      <recent name="D:\Kareem\Desktop\CRM_Project" />
+      <recent name="D:\Kareem\Desktop\CRM_Project\accounts" />
       <recent name="D:\Kareem\Desktop\CRM_Project\leads\templates\lead" />
       <recent name="D:\Kareem\Desktop\CRM\accounts\templates" />
     </key>
