@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'crispy_forms',
     "crispy_tailwind",
+    'widget_tweaks',
 
     # Local apss
     'agents',
