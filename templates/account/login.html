@@ -10,7 +10,32 @@
         <br>
     <form method="post" class="font-semibold">
         {% csrf_token %}
-        {{ form|crispy }}
+
+        {% for field in form %}
+
+    <div class="mb-7">
+
+        {% if field.name == 'remember' %}
+      <label for="{{ field.id_for_label }}" class="block text-gray-200 font-bold mb-2 ">
+        {{ field.label }}
+      </label>
+      {{ field|add_class:" rounded bg-white text-gray-500 p-2" }}
+
+        {% else %}
+      <label for="{{ field.id_for_label }}" class="block text-gray-200 font-bold mb-2 ">
+        {{ field.label }}
+      </label>
+      {{ field|add_class:" rounded bg-white text-gray-500 p-2 w-80" }}
+
+        {% if field.name == 'password' %}
+        <a href="{% url 'account_reset_password' %}"><small class="text-blue-400" >Forgot Password?</small></a>
+        {% endif %}
+{% endif %}
+
+    </div>
+  {% endfor %}
+
+
         <button type="submit" class="text-center w-47.25 text-white bg-green-600 hover:bg-green-800 px-1 py-2 rounded-md ml-17">Log In
         </button>
     </form>
