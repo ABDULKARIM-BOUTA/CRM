@@ -31,6 +31,12 @@ class LeadUpdateView(LoginRequiredMixin, UpdateView):
     form_class = ClientForm
     queryset = Client.objects.all()
 
+    # it helps to override the agent field in the AgentAssignForm
+    def get_form_kwargs(self, **kwargs):
+        kwargs = super(LeadUpdateView, self).get_form_kwargs(**kwargs)
+        kwargs.update({'request': self.request})
+        return kwargs
+
     def get_success_url(self):
         return reverse('leads:lead-detail', args=[self.object.pk])
 
@@ -51,10 +57,20 @@ class LeadCreateView(LoginRequiredMixin, CreateView):
     template_name = 'lead/lead_form.html'
     form_class = ClientForm
 
+    # it helps to override the agent field in the AgentAssignForm
+    def get_form_kwargs(self, **kwargs):
+        kwargs = super(LeadCreateView, self).get_form_kwargs(**kwargs)
+        kwargs.update({'request': self.request})
+        return kwargs
+
     def get_success_url(self):
         return reverse('leads:lead-list')
 
     def form_valid(self, form):
+
+        # to set the client's organization as the user's organization by default
+        form.instance.organization = self.request.user.organization
+
         send_mail(
             subject='A lead has been created',
             message='visit the site to view the new lead',
