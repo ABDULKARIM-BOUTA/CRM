@@ -26,4 +26,3 @@ def post_create_user_signal(sender, created, instance, **kwargs):
         Organization.objects.create(user=instance)
 
 post_save.connect(post_create_user_signal, sender=User)
-
