@@ -1,44 +1,19 @@
 {% extends "partials/base.html" %}
 {% load crispy_forms_tags %}
-{% load widget_tweaks %}
+
 {% block content %}
 
 <div class=" rounded-lg p-7 container max-w-sm mx-auto text-white py-8 mb-15 mx-auto m-15" style="background-color:#990000">
 
     <h2 class="sm:text-3xl text-2xl font-medium ">Log In</h2>
 	    <br>
-        <br>
-    <form method="post" class="font-semibold">
+    <form method="post">
         {% csrf_token %}
+        {{ form|crispy }}
+        <br>
 
-        {% for field in form %}
-
-    <div class="mb-7">
-
-        {% if field.name == 'remember' %}
-      <label for="{{ field.id_for_label }}" class="block text-gray-200 font-bold mb-2 ">
-        {{ field.label }}
-      </label>
-      {{ field|add_class:" rounded bg-white text-gray-500 p-2" }}
-
-        {% else %}
-      <label for="{{ field.id_for_label }}" class="block text-gray-200 font-bold mb-2 ">
-        {{ field.label }}
-      </label>
-      {{ field|add_class:" rounded bg-white text-gray-500 p-2 w-80" }}
-
-        {% if field.name == 'password' %}
-        <a href="{% url 'account_reset_password' %}"><small class="text-blue-400" >Forgot Password?</small></a>
-        {% endif %}
-{% endif %}
-
-    </div>
-  {% endfor %}
-
-
-        <button type="submit" class="text-center w-47.25 text-white bg-green-600 hover:bg-green-800 px-1 py-2 rounded-md ml-17">Log In
+       <button type="submit" class="w-full text-white bg-green-600 hover:bg-green-800 px-1 py-2 rounded-md">Log In
         </button>
-    </form>
+     </form>
     </div>
-
 {% endblock %}
