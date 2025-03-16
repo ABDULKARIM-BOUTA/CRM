@@ -1,7 +1,7 @@
 from django import forms
 from accounts.models import User
 from agents.models import Agent
-from leads.models import Client
+from clients.models import Client
 
 class AgentForm(forms.ModelForm):
     class Meta:

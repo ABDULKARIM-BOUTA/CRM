@@ -1,5 +1,5 @@
 from django import forms
-from leads.models import Client
+from clients.models import Client
 from categories.models import Category
 
 class CategoryUpdateForm(forms.ModelForm):

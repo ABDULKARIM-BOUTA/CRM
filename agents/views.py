@@ -5,7 +5,7 @@ from agents.forms import AgentForm, AgentAssignForm
 from agents.mixins import LoginAndOrganizorRequiredMixin
 from agents.models import Agent
 from django.core.mail import send_mail
-from leads.models import Client
+from clients.models import Client
 
 # Create your views here.
 
@@ -104,4 +104,4 @@ class AgentAssignView(LoginAndOrganizorRequiredMixin, UpdateView):
         return queryset
 
     def get_success_url(self):
-        return reverse('leads:lead-detail', args=[self.object.pk])
+        return reverse('clients:client-detail', args=[self.object.pk])

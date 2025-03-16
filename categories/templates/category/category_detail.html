@@ -16,7 +16,7 @@
 
 
       <div class="p-4 md:w-1/4" >
-                  <a href="{% url 'leads:lead-detail' client.pk %}">
+                  <a href="{% url 'clients:client-detail' client.pk %}">
         <div class="flex rounded-lg w-full p-4 flex-col" style="background-color:#990000">
           <div class= "flex justify-center">
             <h2 class="text-white text-lg title-font" style="font-weight:bold">{{client.first_name|title}} {{client.last_name|title}}

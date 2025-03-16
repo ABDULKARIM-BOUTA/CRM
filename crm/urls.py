@@ -2,14 +2,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
-from leads.views import LandingPageView
+from clients.views import LandingPageView
 from django.contrib.auth.views import LoginView, LogoutView
 
 #from accounts.views import SignUpView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('leads/', include('leads.urls', namespace='leads')),
+    path('clients/', include('clients.urls', namespace='clients')),
     path('agents/', include('agents.urls', namespace='agents')),
     path('categories/', include('categories.urls'), name='categories'),
     path('accounts/', include('allauth.urls')),

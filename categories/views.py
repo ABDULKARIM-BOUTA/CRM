@@ -2,7 +2,7 @@ from django.shortcuts import reverse
 from categories.models import Category
 from django.views.generic import ListView, DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from leads.models import Client
+from clients.models import Client
 from categories.forms import CategoryUpdateForm
 
 # Create your views here.
@@ -30,7 +30,7 @@ class CategoryDetailView(LoginRequiredMixin, DetailView):
         # agents only see their clients
         return queryset
 
-    # to ge clients under specific category
+    # to get clients under specific category
     # alternatively you can adjust category_detail.html to {% for client in category.clients.all %}
     # and it will function the same way
     def get_context_data(self, **kwargs):
@@ -58,7 +58,7 @@ class ClientCategoryUpdateView(LoginRequiredMixin, UpdateView):
         return queryset
 
     def get_success_url(self):
-        return reverse('leads:lead-detail', args=[self.object.pk])
+        return reverse('clients:client-detail', args=[self.object.pk])
 
     def get_form_kwargs(self, **kwargs):
         kwargs = super(ClientCategoryUpdateView, self).get_form_kwargs(**kwargs)

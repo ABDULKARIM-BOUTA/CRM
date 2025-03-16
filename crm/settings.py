@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'agents',
     'categories',
     'accounts',
-    'leads',
+    'clients',
 ]
 
 MIDDLEWARE = [
@@ -151,7 +151,7 @@ AUTH_USER_MODEL = 'accounts.User'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-LOGIN_REDIRECT_URL = '/leads'
+LOGIN_REDIRECT_URL = '/clients'
 LOGOUT_REDIRECT_URL = '/'
 
 AUTHENTICATION_BACKENDS = [
