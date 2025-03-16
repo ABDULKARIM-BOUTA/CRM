@@ -15,4 +15,5 @@ class ClientForm(forms.ModelForm):
         organization = request.user.organization
         agents = Agent.objects.filter(organization=organization)
         super(ClientForm, self).__init__(*args, **kwargs)
+        self.fields['agent'].required = False
         self.fields['agent'].queryset = agents
