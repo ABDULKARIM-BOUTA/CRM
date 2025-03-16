@@ -64,7 +64,7 @@ MIDDLEWARE = [
 
 ]
 
-ROOT_URLCONF = 'crm.urls'
+ROOT_URLCONF = '_crm.urls'
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'crm.wsgi.application'
+WSGI_APPLICATION = '_crm.wsgi.application'
 
 
 # Database
