@@ -86,15 +86,36 @@ class ClientListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         user = self.request.user
 
-        # organizations only see their clients
+        # Get the sort field and direction from the URL
+        sort_field = self.request.GET.get('sort', 'first_name')
+        direction = self.request.GET.get('direction', 'asc')
+
+        # Validate the sort field to prevent SQL injection
+        valid_sort_fields = {'first_name', 'sort_by_date'}
+        if sort_field not in valid_sort_fields:
+            sort_field = 'first_name'
+
+        # Add '-' prefix for descending order
+        if direction == 'desc':
+            sort_field = f'-{sort_field}'
+
+        # Filter clients based on user role
         if user.is_organizor:
             queryset = Client.objects.filter(organization__user=user)
-
-        # Agents only see their clients
         elif user.is_agent:
             queryset = Client.objects.filter(agent__user=user)
+        else:
+            queryset = Client.objects.none()
 
-        return queryset
+        # Sort the queryset
+        return queryset.order_by(sort_field)
+
+    def get_context_data(self, **kwargs):
+        # Add additional context data (sort_field and direction)
+        context = super().get_context_data(**kwargs)
+        context['sort_field'] = self.request.GET.get('sort', 'first_name')
+        context['direction'] = self.request.GET.get('direction', 'asc')
+        return context
 
 class ClientDetailView(LoginRequiredMixin, DetailView):
     template_name = 'client/client_detail.html'

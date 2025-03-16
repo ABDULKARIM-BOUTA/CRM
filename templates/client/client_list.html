@@ -1,39 +1,74 @@
 {% extends 'partials/base.html' %}
-    {% block content %}
+{% block content %}
 <title>Clients</title>
 
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-17 mx-auto">
     <div class="flex flex-col text-center w-full mb-15">
-      <h1 class="sm:text-4xl text-3xl font-medium title-font  text-gray-100">Clients</h1>
+      <h1 class="sm:text-4xl text-3xl font-medium title-font text-gray-100">Clients</h1>
     </div>
     <div class="lg:w-250 w-full mx-auto overflow-auto rounded-lg" style="background-color:#990000">
       <table class="table-auto w-full text-left whitespace-no-wrap">
         <thead>
           <tr>
-            <th class=" bg-red-500 px-4 py-3 title-font tracking-wider font-medium text-black text-sm bg-gray-100 rounded-tl rounded-bl">Name</th>
-            <th class="bg-red-500 px-1 py-3 title-font tracking-wider font-medium text-black text-sm bg-gray-100 ">Email</th>
-            <th class="bg-red-500 py-3 title-font font-medium text-black text-sm bg-gray-100 ">Phone Number</th>
+            <!-- Name Column with Sorting -->
+            <th class="bg-red-500 px-4 py-3 title-font tracking-wider font-medium text-black text-sm bg-gray-100 rounded-tl rounded-bl">
+              <a href="?sort=first_name&direction={% if sort_field == 'first_name' and direction == 'asc' %}desc{% else %}asc{% endif %}" class="flex items-center">
+                Name
+                {% if sort_field == 'first_name' %}
+                  {% if direction == 'asc' %}
+                    <span class="ml-1">▲</span>
+                  {% else %}
+                    <span class="ml-1">▼</span>
+                  {% endif %}
+                {% endif %}
+              </a>
+            </th>
+
+            <!-- Email Column -->
+            <th class="bg-red-500 px-1 py-3 title-font tracking-wider font-medium text-black text-sm bg-gray-100">Email</th>
+
+            <!-- Phone Number Column -->
+            <th class="bg-red-500 py-3 title-font font-medium text-black text-sm bg-gray-100">Phone Number</th>
+
+            <!-- Agent Column -->
             <th class="bg-red-500 px-4 py-3 title-font tracking-wider font-medium text-black text-sm bg-gray-100 pr-5">Agent</th>
+
+            <!-- Category Column -->
             <th class="bg-red-500 px-14 py-3 title-font tracking-wider font-medium text-black text-sm bg-gray-100">Category</th>
+
+            <!-- Sort By Date Column with Sorting -->
+            <th class="bg-red-500 px-4 py-3 title-font tracking-wider font-medium text-black text-sm bg-gray-100">
+              <a href="?sort=sort_by_date&direction={% if sort_field == 'sort_by_date' and direction == 'asc' %}desc{% else %}asc{% endif %}" class="flex items-center">
+                Sort By Date
+                {% if sort_field == 'sort_by_date' %}
+                  {% if direction == 'asc' %}
+                    <span class="ml-1">▲</span>
+                  {% else %}
+                    <span class="ml-1">▼</span>
+                  {% endif %}
+                {% endif %}
+              </a>
+            </th>
+
+            <!-- Edit Column -->
             <th class="bg-red-500 w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br"></th>
           </tr>
         </thead>
 
-
-{% for client in object_list %}
-          <tbody>
-          <tr>
+        <tbody>
+          {% for client in object_list %}
+            <tr>
               <td class="px-4 py-3 text-white text-sm capitalize">{{ client.first_name }} {{ client.last_name }}</td>
-            <td class="px-1 py-3 text-white text-sm">{{ client.email }}</td>
-            <td class="px- py-3 text-white text-sm">{{ client.phone_number }}</td>
-            <td class="px-4 py-3 text-white text-sm">{{ client.agent }}</td>
-            <td class="w-10 text-center text-white text-sm">{{ client.category }}</td>
-            <td class="text-blue-500"><a href="{% url 'clients:client-detail' client.pk%}"> Edit</a></td>
-          </tr>
+              <td class="px-1 py-3 text-white text-sm">{{ client.email }}</td>
+              <td class="px- py-3 text-white text-sm">{{ client.phone_number }}</td>
+              <td class="px-4 py-3 text-white text-sm">{{ client.agent }}</td>
+              <td class="w-10 text-center text-white text-sm">{{ client.category }}</td>
+              <td class="px-4 py-3 text-white text-sm">{{ client.sort_by_date|date:"Y-m-d" }}</td>  <!-- Updated field name -->
+              <td class="text-blue-500"><a href="{% url 'clients:client-detail' client.pk %}">Edit</a></td>
+            </tr>
+          {% endfor %}
         </tbody>
-{% endfor %}
-
       </table>
     </div>
   </div>
