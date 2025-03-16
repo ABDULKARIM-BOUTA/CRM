@@ -1,53 +1,42 @@
 {% extends 'partials/base.html' %}
     {% block content %}
 <title>Clients</title>
-<section class="text-white body-font">
-  <div class="container py-15 mx-auto">
-    <div class="flex flex-col text-center w-full mb-20">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Assigned Clients</h1>
+
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-17 mx-auto">
+    <div class="flex flex-col text-center w-full mb-15">
+      <h1 class="sm:text-4xl text-3xl font-medium title-font  text-gray-100">Clients</h1>
     </div>
-          <div class="flex flex-wrap -m-7">
+    <div class="lg:w-250 w-full mx-auto overflow-auto rounded-lg" style="background-color:#990000">
+      <table class="table-auto w-full text-left whitespace-no-wrap">
+        <thead>
+          <tr>
+            <th class=" bg-red-500 px-4 py-3 title-font tracking-wider font-medium text-black text-sm bg-gray-100 rounded-tl rounded-bl">Name</th>
+            <th class="bg-red-500 px-1 py-3 title-font tracking-wider font-medium text-black text-sm bg-gray-100 ">Email</th>
+            <th class="bg-red-500 py-3 title-font font-medium text-black text-sm bg-gray-100 ">Phone Number</th>
+            <th class="bg-red-500 px-4 py-3 title-font tracking-wider font-medium text-black text-sm bg-gray-100 pr-5">Agent</th>
+            <th class="bg-red-500 px-14 py-3 title-font tracking-wider font-medium text-black text-sm bg-gray-100">Category</th>
+            <th class="bg-red-500 w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br"></th>
+          </tr>
+        </thead>
+
 
 {% for client in object_list %}
-        {% if client.agent != None %}
+          <tbody>
+          <tr>
+              <td class="px-4 py-3 text-white text-sm capitalize">{{ client.first_name }} {{ client.last_name }}</td>
+            <td class="px-1 py-3 text-white text-sm">{{ client.email }}</td>
+            <td class="px- py-3 text-white text-sm">{{ client.phone_number }}</td>
+            <td class="px-4 py-3 text-white text-sm">{{ client.agent }}</td>
+            <td class="w-10 text-center text-white text-sm">{{ client.category }}</td>
+            <td class="text-blue-500"><a href="{% url 'clients:client-detail' client.pk%}"> Edit</a></td>
+          </tr>
+        </tbody>
+{% endfor %}
 
-      <div class="p-4 md:w-1/4" >
-                  <a href="{% url 'clients:client-detail' client.pk %}">
-        <div class="flex rounded-lg h-full p-4 flex-col" style="background-color:#990000">
-          <div class= "flex justify-center">
-            <h2 class="text-white text-lg " style="font-weight:bold">{{client.first_name|title}} {{client.last_name|title}}
-            </h2>
-          </div>
-        </div>
-      </div>
-</a>
-
-          {% endif %}
-          {% endfor %}
-
-  <div class="container py-24 mx-auto"  >
-    <div class="flex flex-col text-center w-full mb-20">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">Unassigned Clients</h1>
+      </table>
     </div>
-    <div class="flex flex-wrap -m-7">
-
-        {% for client in object_list %}
-        {% if client.agent == None %}
-
-
-      <div class="p-4 md:w-1/4" >
-                  <a href="{% url 'clients:client-detail' client.pk %}">
-        <div class="flex rounded-lg h-full p-4 flex-col" style="background-color:#990000">
-          <div class= "flex justify-center">
-            <h2 class="text-white text-lg title-font" style="font-weight:bold">{{client.first_name|title}} {{client.last_name|title}}
-            </h2>
-          </div>
-        </div>
-    </div>
-
-          {% endif %}
-          {% endfor %}
-
   </div>
 </section>
+
 {% endblock %}
