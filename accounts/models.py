@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 
@@ -22,7 +23,7 @@ class Organization(models.Model):
 
 # Signal: when an account is created an Organization instance is automatically created
 def post_create_user_signal(sender, created, instance, **kwargs):
-    if created:
+    if created and instance.is_organizor:
         Organization.objects.create(user=instance)
 
 post_save.connect(post_create_user_signal, sender=User)

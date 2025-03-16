@@ -15,5 +15,5 @@ class Agent(models.Model):
 # Signal to delete the associated User when an Agent is deleted
 @receiver(post_delete, sender=Agent)
 def delete_associated_user(sender, instance, **kwargs):
-    if instance.user: 
+    if instance.user:
         instance.user.delete()

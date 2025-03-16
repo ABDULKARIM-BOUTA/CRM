@@ -28,8 +28,8 @@ class AgentCreateView(LoginAndOrganizorRequiredMixin, CreateView):
     # when an agent is add by the organization, an agent user is automatically created
     def form_valid(self, form):
         user = form.save(commit=False)
-        user.is_agent = True
         user.is_organizor = False
+        user.is_agent = True
 
         # create a random password for the new agent
         user.set_password(f'{randint(0,1000000)}')
