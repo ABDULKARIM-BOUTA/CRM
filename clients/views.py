@@ -4,6 +4,7 @@ from clients.models import Client
 from clients.forms import ClientForm
 from django.views.generic import TemplateView, ListView, DetailView, DeleteView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import F, BooleanField, Case, When, Value
 
 # Create your views here.
 
