@@ -1,0 +1,32 @@
+{% extends 'partials/base.html' %}
+    {% block content %}
+<title>{{ category.name }}</title>
+<section class="text-white body-font">
+  <div class="container py-15 mx-auto">
+    <div class="flex flex-col text-center w-full mb-15">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">{{ category.name }}</h1>
+    </div>
+              <h2 class="text-white text-lg title-font font-medium" style="font-weight:bold">Clients: {{ clients|length}}
+              </h2>
+            <br>
+      <br>
+          <div class="flex flex-wrap -m-8">
+
+              {% for client in clients %}
+
+
+      <div class="p-4 md:w-1/4" >
+                  <a href="{% url 'clients:client-detail' client.pk %}">
+        <div class="flex rounded-lg w-full p-4 flex-col" style="background-color:#990000">
+          <div class= "flex justify-center">
+            <h2 class="text-white text-lg title-font" style="font-weight:bold">{{client.first_name|title}} {{client.last_name|title}}
+            </h2>
+          </div>
+        </div>
+      </div>
+</a>
+{%endfor%}
+    </div>
+  </div>
+</section>
+{% endblock %}
