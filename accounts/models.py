@@ -20,7 +20,7 @@ class Organization(models.Model):
     def __str__(self):
         return self.user.username
 
-
+# Signal: when an account is created an Organization instance is automatically created
 def post_create_user_signal(sender, created, instance, **kwargs):
     if created:
         Organization.objects.create(user=instance)
