@@ -155,6 +155,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_REDIRECT_URL = '/clients'
 LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_PASSWORD_CHANGE_REDIRECT_URL = 'accounts:profile-page'
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
