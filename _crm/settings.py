@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Third party apps
     'allauth',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     "crispy_tailwind",
     'widget_tweaks',
+    'django_extensions',
 
     # Local apss
     'agents',
@@ -161,9 +163,11 @@ AUTHENTICATION_BACKENDS = [
     # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-
+SITE_ID = 1
 ACCOUNT_LOGIN_METHODS = {'email', 'username'}
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
