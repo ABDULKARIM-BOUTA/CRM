@@ -1,7 +1,7 @@
 from random import randint
 from django.shortcuts import reverse
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView, FormView
-from agents.forms import AgentForm, AgentAssignForm
+from agents.forms import AgentUpdateForm, AgentAssignForm, AgentCreateForm
 from agents.mixins import LoginAndOrganizorRequiredMixin
 from agents.models import Agent
 from django.core.mail import send_mail
@@ -18,7 +18,7 @@ class AgentListView(LoginAndOrganizorRequiredMixin, ListView):
         return Agent.objects.filter(organization=organization)
 
 class AgentCreateView(LoginAndOrganizorRequiredMixin, CreateView):
-    form_class = AgentForm
+    form_class = AgentCreateForm
     template_name = 'agent/agent_form.html'
 
     def get_success_url(self):
@@ -69,7 +69,7 @@ class AgentDeleteView(LoginAndOrganizorRequiredMixin, DeleteView):
         return Agent.objects.filter(organization=organization)
 
 class AgentUpdateView(LoginAndOrganizorRequiredMixin, UpdateView):
-    form_class = AgentForm
+    form_class = AgentUpdateForm
     template_name = 'agent/agent_update.html'
 
     def get_success_url(self):

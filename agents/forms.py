@@ -4,11 +4,11 @@ from agents.models import Agent
 from clients.models import Client
 from django.core.exceptions import ValidationError
 
-class AgentForm(forms.ModelForm):
+class AgentUpdateForm(forms.ModelForm):
     email = forms.EmailField()
-    username = forms.CharField(max_length=150)
-    first_name = forms.CharField(max_length=30, required=False)
-    last_name = forms.CharField(max_length=150, required=False)
+    username = forms.CharField(max_length=15)
+    first_name = forms.CharField(max_length=20, required=False)
+    last_name = forms.CharField(max_length=20, required=False)
 
     class Meta:
         model = Agent
@@ -45,6 +45,17 @@ class AgentForm(forms.ModelForm):
             user.last_name = self.cleaned_data['last_name']
             user.save()
         return agent
+
+
+class AgentCreateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields =  [
+            'email',
+            'username',
+            'first_name',
+            'last_name',
+        ]
 
 class AgentAssignForm(forms.ModelForm):
     class Meta:
