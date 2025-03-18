@@ -1,25 +1,36 @@
-{% extends "account/base_manage.html" %}
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
 {% load i18n %}
 {% load allauth %}
-{% block head_title %}
-    {% trans "Verify Your Email Address" %}
-{% endblock head_title %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Verify Your Email Address" %}
-    {% endelement %}
-    {% url 'account_email' as email_url %}
-    {% element p %}
-        {% blocktrans %}This part of the site requires us to verify that
-you are who you claim to be. For this purpose, we require that you
-verify ownership of your email address. {% endblocktrans %}
-    {% endelement %}
-    {% element p %}
-        {% blocktrans %}We have sent an email to you for
-verification. Please click on the link inside that email. If you do not see the verification email in your main inbox, check your spam folder. Otherwise
-contact us if you do not receive it within a few minutes.{% endblocktrans %}
-    {% endelement %}
-    {% element p %}
-        {% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your email address</a>.{% endblocktrans %}
-    {% endelement %}
+<div class="rounded-lg p-7 container max-w-sm mx-auto text-white py-8 mb-15 mx-auto m-15" style="background-color:#990000">
+    <!-- Title -->
+    <h2 class="sm:text-3xl text-2xl font-medium">Verify Your Email Address</h2>
+    <br>
+
+    <!-- Description -->
+    <p style="font-weight:bold">
+        {% blocktrans %}
+            This part of the site requires us to verify that you are who you claim to be. For this purpose, we require that you verify ownership of your email address.
+        {% endblocktrans %}
+    </p>
+    <br>
+
+    <!-- Instructions -->
+    <p style="font-weight:bold">
+        {% blocktrans %}
+            We have sent an email to you for verification. Please click on the link inside that email. If you do not see the verification email in your main inbox, check your spam folder. Otherwise, contact us if you do not receive it within a few minutes.
+        {% endblocktrans %}
+    </p>
+    <br>
+
+    <!-- Note -->
+    <p style="font-weight:bold">
+        {% url 'account_email' as email_url %}
+        {% blocktrans %}
+            <strong>Note:</strong> you can still <a href="{{ email_url }}" class="text-green-400 hover:text-green-600">change your email address</a>.
+        {% endblocktrans %}
+    </p>
+</div>
 {% endblock content %}
