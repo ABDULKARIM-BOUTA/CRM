@@ -1,14 +1,12 @@
 from django.shortcuts import reverse
-from django.core.mail import send_mail
 from clients.models import Client
 from clients.forms import ClientForm
 from django.views.generic import TemplateView, ListView, DetailView, DeleteView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import F, BooleanField, Case, When, Value
-
+from agents.mixins import LoginAndOrganizorRequiredMixin
 # Create your views here.
 
-class ClientDeleteView(LoginRequiredMixin, DeleteView):
+class ClientDeleteView(LoginAndOrganizorRequiredMixin, DeleteView):
     template_name = 'client/client_delete.html'
 
     def get_success_url(self):
@@ -21,13 +19,9 @@ class ClientDeleteView(LoginRequiredMixin, DeleteView):
         if user.is_organizor:
             queryset = Client.objects.filter(organization__user=user)
 
-        # Agents only see their clients
-        elif user.is_agent:
-            queryset = Client.objects.filter(agent__user=user)
-
         return queryset
 
-class ClientUpdateView(LoginRequiredMixin, UpdateView):
+class ClientUpdateView(LoginAndOrganizorRequiredMixin, UpdateView):
     template_name = 'client/client_update.html'
     form_class = ClientForm
     queryset = Client.objects.all()
@@ -48,13 +42,9 @@ class ClientUpdateView(LoginRequiredMixin, UpdateView):
         if user.is_organizor:
             queryset = Client.objects.filter(organization__user=user)
 
-        # Agents only see their clients
-        elif user.is_agent:
-            queryset = Client.objects.filter(agent__user=user)
-
         return queryset
 
-class ClientCreateView(LoginRequiredMixin, CreateView):
+class ClientCreateView(LoginAndOrganizorRequiredMixin, CreateView):
     template_name = 'client/client_form.html'
     form_class = ClientForm
 
@@ -68,7 +58,6 @@ class ClientCreateView(LoginRequiredMixin, CreateView):
         return reverse('clients:client-list')
 
     def form_valid(self, form):
-
         # to set the client's organization as the user's organization by default
         form.instance.organization = self.request.user.organization
 

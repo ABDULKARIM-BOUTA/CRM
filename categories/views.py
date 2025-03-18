@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from clients.models import Client
 from categories.forms import CategoryUpdateForm
+from agents.mixins import LoginAndOrganizorRequiredMixin
 
 # Create your views here.
 
@@ -45,7 +46,7 @@ class CategoryDetailView(LoginRequiredMixin, DetailView):
 
         return context
 
-class ClientCategoryUpdateView(LoginRequiredMixin, UpdateView):
+class ClientCategoryUpdateView(LoginAndOrganizorRequiredMixin, UpdateView):
     template_name = 'category/category_update.html'
     form_class = CategoryUpdateForm
     queryset = Client.objects.all()
