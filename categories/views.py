@@ -14,8 +14,14 @@ class CategoryListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         user = self.request.user
 
+        # organizations only see their categories
         if user.is_organizor:
             queryset = Category.objects.filter(organization__user=user)
+
+        # agents only see their categories
+        if user.is_agent:
+            queryset = Category.objects.filter(organization__user=user)
+
         return queryset
 
 class CategoryDetailView(LoginRequiredMixin, DetailView):
@@ -29,6 +35,9 @@ class CategoryDetailView(LoginRequiredMixin, DetailView):
             queryset = Category.objects.filter(organization__user=user)
 
         # agents only see their clients
+        if user.is_agent:
+            queryset = Category.objects.filter(organization__user=user)
+
         return queryset
 
     # to get clients under specific category

@@ -11,6 +11,8 @@ class User(AbstractUser):
     is_organizor = models.BooleanField(default=True)
     is_agent = models.BooleanField(default=False)
 
+    username = models.CharField(unique=True, max_length=15)
+
     def __str__(self):
         return self.username
 
