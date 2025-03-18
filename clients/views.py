@@ -72,12 +72,6 @@ class ClientCreateView(LoginRequiredMixin, CreateView):
         # to set the client's organization as the user's organization by default
         form.instance.organization = self.request.user.organization
 
-        send_mail(
-            subject='A client has been created',
-            message='visit the site to view the new lead',
-            from_email='thenamelessone@tutamail.com',
-            recipient_list=['x.kareem.x505@gmail.com']
-        )
         return super(ClientCreateView, self).form_valid(form)
 
 class ClientListView(LoginRequiredMixin, ListView):
@@ -87,7 +81,7 @@ class ClientListView(LoginRequiredMixin, ListView):
         user = self.request.user
 
         # Get the sort field and direction from the URL
-        sort_field = self.request.GET.get('sort', 'first_name')
+        sort_field = self.request.GET.get('sort', 'sort_by_date')
         direction = self.request.GET.get('direction', 'asc')
 
         # Validate the sort field to prevent SQL injection
