@@ -4,6 +4,8 @@ from allauth.account.views import PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import User
 from django.urls import reverse_lazy
+from allauth.account.views import EmailView
+from agents.mixins import LoginAndOrganizorRequiredMixin
 
 # Create your views here.
 class PofilePageView(LoginRequiredMixin, DetailView):
@@ -15,3 +17,9 @@ class PofilePageView(LoginRequiredMixin, DetailView):
 
 class CustomPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     success_url = reverse_lazy('accounts:profile-page')
+
+class OrganizorEmailView(LoginAndOrganizorRequiredMixin, EmailView):
+    """
+    Custom email view that restricts access to authenticated organizors only.
+    """
+    pass

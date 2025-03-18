@@ -1,5 +1,5 @@
 from django.urls import path
-from accounts.views import PofilePageView, CustomPasswordChangeView
+from accounts.views import PofilePageView
 
 app_name = 'accounts'
 
