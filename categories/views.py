@@ -1,6 +1,6 @@
 from django.shortcuts import reverse
 from categories.models import Category
-from django.views.generic import ListView, DetailView, UpdateView, CreateView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from clients.models import Client
 from categories.forms import ClientCategoryUpdateForm, CategoryCreateForm
@@ -96,3 +96,17 @@ class CategoryUpdateView(LoginAndOrganizorRequiredMixin, UpdateView):
     def get_queryset(self):
         organization = self.request.user.organization
         return Category.objects.filter(organization=organization)
+
+class CategoryDeleteView(LoginAndOrganizorRequiredMixin, DeleteView):
+    template_name = 'category/category_delete.html'
+
+    def get_success_url(self):
+        return reverse('categories:category-list')
+
+    def get_queryset(self):
+        user = self.request.user
+
+        # organizations only see their clients
+        if user.is_organizor:
+            queryset = Category.objects.filter(organization__user=user)
+        return queryset
