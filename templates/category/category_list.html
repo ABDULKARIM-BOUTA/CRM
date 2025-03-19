@@ -4,9 +4,16 @@
 <section class="text-black body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="text-center mb-20">
-      <h1 class="sm:text-4xl text-2xl font-medium text-center title-font text-white mb-4">Categories</h1>
-      <br>
-      <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+<div class="flex items-center justify-between ">
+    <div class="flex-1"></div> <!-- Empty space on the left -->
+    <h1 class="sm:text-4xl text-2xl font-medium title-font text-white text-center flex-1">Categories</h1>
+    <a href="{% url 'categories:category-create' %}" class="flex-1 text-right">
+        <button class="inline-flex text-white bg-green-600 border-0 py-2 px-8 focus:outline-none hover:bg-green-700 rounded">
+            Create Category +
+        </button>
+    </a>
+</div>
+        <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2 mt-15">
 
         {% for category in object_list %}
         <div class="p-2 sm:w-1/2 w-full">
@@ -16,8 +23,7 @@
             <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
             <path d="M22 4L12 14.01l-3-3"></path>
           </svg>
-          <span class="title-font font-medium text-white">{{ category }}</span>
-          <span class="title-font font-medium ml-auto text-white">Count: {{ clients|length }}</span>
+          <span class="font-medium text-white">{{ category|title }}</span>
 
         </div>
           </a>

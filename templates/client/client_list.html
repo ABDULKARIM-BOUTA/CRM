@@ -63,7 +63,7 @@
               <td class="px-1 py-3 text-white text-sm">{{ client.email }}</td>
               <td class="px- py-3 text-white text-sm">{{ client.phone_number }}</td>
               <td class="px-4 py-3 text-white text-sm">{{ client.agent }}</td>
-              <td class="w-10 text-center text-white text-sm">{{ client.category }}</td>
+              <td class="w-10 text-center text-white text-sm">{{ client.category|title }}</td>
               <td class="px-7 py-3 text-white text-sm">{{ client.sort_by_date|date:"Y-m-d" }}</td>  <!-- Updated field name -->
               <td class="text-green-400" style="padding-right: 20px;"><a href="{% url 'clients:client-detail' client.pk %}">View</a></td>
             </tr>

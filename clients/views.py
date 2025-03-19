@@ -60,7 +60,6 @@ class ClientCreateView(LoginAndOrganizorRequiredMixin, CreateView):
     def form_valid(self, form):
         # to set the client's organization as the user's organization by default
         form.instance.organization = self.request.user.organization
-
         return super(ClientCreateView, self).form_valid(form)
 
 class ClientListView(LoginRequiredMixin, ListView):
