@@ -6,28 +6,28 @@ from accounts.models import User, Organization
 from django.urls import reverse_lazy
 from allauth.account.views import EmailView
 from agents.mixins import LoginAndOrganizorRequiredMixin
-from clients.models import Client
+from clients.models import Agent
 
 # Create your views here.
-class PofilePageView(LoginRequiredMixin, DetailView):
+class ProfilePageView(LoginRequiredMixin, DetailView):
     template_name = 'account/profile-page.html'
     model = User
 
     def get_object(self, queryset=None):
         return self.request.user
 
-    def get_queryset(self):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         user = self.request.user
 
-        # organizations only see their clients
-        if user.is_organizor:
-            queryset = Client.objects.filter(organization__user=user)
-
-        # Agents only see their clients
-        elif user.is_agent:
-            queryset = Client.objects.filter(agent__user=user)
-
-        return queryset
+        # Add organization to context if the user is an agent
+        if user.is_agent:
+            try:
+                agent = Agent.objects.get(user=user)
+                context['organization'] = agent.organization
+            except Agent.DoesNotExist:
+                context['organization'] = None
+        return context
 
 class CustomPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     success_url = reverse_lazy('accounts:profile-page')

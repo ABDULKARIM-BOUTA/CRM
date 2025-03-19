@@ -1,8 +1,8 @@
 from django.urls import path
-from accounts.views import PofilePageView
+from accounts.views import ProfilePageView
 
 app_name = 'accounts'
 
 urlpatterns = [
-    path('', PofilePageView.as_view(), name='profile-page'),
+    path('', ProfilePageView.as_view(), name='profile-page'),
 ]

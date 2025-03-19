@@ -21,6 +21,13 @@
           <span class="ml-auto text-white">{{user.email}}</span>
         </div>
 
+                  {% if user.is_agent and organization %}
+          <div class="flex border-t border-gray-800 py-2">
+            <span class="text-black">Organization</span>
+            <span class="ml-auto text-white">{{ organization.user.username }}</span>
+          </div>
+        {% endif %}
+
           <a href="{% url 'account_change_password' %}"> <button class="inline-flex mt-10 ml-auto text-white bg-blue-600 border-0 py-2 px-9 focus:outline-none hover:bg-blue-700 rounded">Change Password</button></a>
 
           {%if user.is_organizor%}
