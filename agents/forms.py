@@ -12,7 +12,7 @@ class AgentUpdateForm(forms.ModelForm):
 
     class Meta:
         model = Agent
-        exclude = ['user','organization']  # Add other fields specific to the Agent model
+        exclude = ['user','organization']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
