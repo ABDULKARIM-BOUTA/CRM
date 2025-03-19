@@ -34,6 +34,6 @@ class CustomPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
 
 class OrganizorEmailView(LoginAndOrganizorRequiredMixin, EmailView):
     """
-    Custom email view that restricts access to authenticated organizors only.
+    Custom email view that restricts access to authenticated organizors only, so that agents cant change their email by themselves
     """
     pass

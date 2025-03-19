@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from clients.models import Client
 from categories.forms import ClientCategoryUpdateForm, CategoryCreateForm
 from agents.mixins import LoginAndOrganizorRequiredMixin
-
+from agents.models import Agent
 # Create your views here.
 
 class CategoryListView(LoginRequiredMixin, ListView):
@@ -18,9 +18,17 @@ class CategoryListView(LoginRequiredMixin, ListView):
         if user.is_organizor:
             queryset = Category.objects.filter(organization__user=user)
 
-        # agents only see their categories
-        if user.is_agent:
-            queryset = Category.objects.filter(organization__user=user)
+        # Agents see categories in their organization
+        elif user.is_agent:
+            try:
+                # Get the agent's organization
+                agent = Agent.objects.get(user=user)
+                queryset = Category.objects.filter(organization=agent.organization)
+            except Agent.DoesNotExist:
+                queryset = Category.objects.none()  # No categories if agent has no organization
+
+        else:
+            queryset = Category.objects.none()  # Default to no categories for other users
 
         return queryset
 
@@ -30,27 +38,51 @@ class CategoryDetailView(LoginRequiredMixin, DetailView):
     def get_queryset(self):
         user = self.request.user
 
-        # organizations only see their clients
         if user.is_organizor:
             queryset = Category.objects.filter(organization__user=user)
 
-        # agents only see their clients
-        if user.is_agent:
-            queryset = Category.objects.filter(organization__user=user)
+        # Agents see categories in their organization
+        elif user.is_agent:
+            try:
+                # Get the agent's organization
+                agent = Agent.objects.get(user=user)
+                queryset = Category.objects.filter(organization=agent.organization)
+            except Agent.DoesNotExist:
+                queryset = Category.objects.none()  # No categories if agent has no organization
+
+        else:
+            queryset = Category.objects.none()  # Default to no categories for other users
 
         return queryset
 
     # to get clients under specific category
     # alternatively you can adjust category_detail.html to {% for client in category.clients.all %}
     # and it will function the same way
+
     def get_context_data(self, **kwargs):
-        context = super(CategoryDetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         user = self.request.user
 
-        if user.is_organizor:
-            queryset = Client.objects.filter(organization__user=user)
+        # Get the current category
+        category = self.get_object()
 
-        clients = self.get_object().clients.all()  # using the related name of the category FK. #get_object()can only be used in Detail
+        # Filter clients based on the user's role
+        if user.is_organizor:
+            # Organizers can see all clients under the category
+            clients = category.clients.all()
+
+        elif user.is_agent:
+            try:
+                # Agents can only see clients assigned to them under the category
+                agent = Agent.objects.get(user=user)
+                clients = category.clients.filter(agent=agent)
+            except Agent.DoesNotExist:
+                clients = category.clients.none()  # No clients if agent has no organization
+
+        else:
+            clients = category.clients.none()  # Default to no clients for other users
+
+        # Add clients to the context
         context.update({'clients': clients})
 
         return context

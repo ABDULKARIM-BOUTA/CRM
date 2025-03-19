@@ -19,7 +19,8 @@
         Clients: {{ clients|length }}
       </h2>
 
-      <!-- Buttons grouped together -->
+
+      {% if user.is_organizor %}
       <div class="flex space-x-4">
         <!-- Update button -->
         <a href="{% url 'categories:category-update' category.pk %}">
@@ -35,7 +36,7 @@
           </button>
         </a>
       </div>
-
+      {% endif %}
     </div>
 
     <br>
