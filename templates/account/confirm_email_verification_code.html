@@ -1,0 +1,30 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load allauth account %}
+
+{% block content %}
+<div class="rounded-lg p-7 container max-w-sm mx-auto text-white py-8 mb-15 mx-auto m-15" style="background-color:#990000">
+    <!-- Title -->
+    <h2 class="sm:text-3xl text-2xl font-medium">Enter Email Verification Code</h2>
+    <br>
+
+    <!-- Recipient Email -->
+    <p style="font-weight:bold">
+        {% blocktranslate %}
+            A verification code has been sent to <a href="mailto:{{ email }}" class="text-green-400 hover:text-green-600">{{ email }}</a>. Please enter the code below.
+        {% endblocktranslate %}
+    </p>
+    <br>
+
+    <!-- Verification Code Form -->
+    <form method="post" action="{% url 'account_email_verification_sent' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <button type="submit" class="w-full text-white bg-green-600 hover:bg-green-800 px-1 py-2 rounded-md">
+            {% translate "Verify" %}
+        </button>
+    </form>
+</div>
+{% endblock content %}

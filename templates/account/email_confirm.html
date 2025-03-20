@@ -1,0 +1,51 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load account %}
+{% load allauth %}
+
+{% block content %}
+<div class="rounded-lg p-7 container max-w-sm mx-auto text-white py-8 mb-15 mx-auto m-15" style="background-color:#990000">
+    <!-- Title -->
+    <h2 class="sm:text-3xl text-2xl font-medium">Confirm Email Address</h2>
+    <br>
+
+    {% if confirmation %}
+        {% user_display confirmation.email_address.user as user_display %}
+        {% if can_confirm %}
+            <!-- Confirmation Message -->
+            <p style="font-weight:bold">
+                {% blocktrans with confirmation.email_address.email as email %}
+                    Please confirm that <a href="mailto:{{ email }}" class="text-green-400 hover:text-green-600">{{ email }}</a> is an email address for user {{ user_display }}.
+                {% endblocktrans %}
+            </p>
+            <br>
+
+            <!-- Confirmation Form -->
+            {% url 'account_confirm_email' confirmation.key as action_url %}
+            <form method="post" action="{{ action_url }}">
+                {% csrf_token %}
+                {{ redirect_field }}
+                <button type="submit" class="w-full text-white bg-green-600 hover:bg-green-800 px-1 py-2 rounded-md">
+                    {% trans 'Confirm' %}
+                </button>
+            </form>
+        {% else %}
+            <!-- Already Confirmed Message -->
+            <p style="font-weight:bold">
+                {% blocktrans %}
+                    Unable to confirm {{ email }} because it is already confirmed by a different account.
+                {% endblocktrans %}
+            </p>
+        {% endif %}
+    {% else %}
+        <!-- Invalid or Expired Link Message -->
+        {% url 'account_email' as email_url %}
+        <p style="font-weight:bold">
+            {% blocktrans %}
+                This email confirmation link expired or is invalid. Please <a href="{{ email_url }}" class="text-green-400 hover:text-green-600">issue a new email confirmation request</a>.
+            {% endblocktrans %}
+        </p>
+    {% endif %}
+</div>
+{% endblock content %}

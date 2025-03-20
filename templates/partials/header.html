@@ -1,0 +1,90 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    .nav-link {
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    .nav-link .material-symbols-outlined {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<header class="text-white body-font bg-gradient-to-r from-red-800 to-red-600 border-b border-gray-300">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
+    <!-- Logo and branding -->
+    <a href="{% url 'landing-page' %}" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+      <div style="background-color: #ff0000; border-radius: 50%; padding: 12px; display: inline-flex; align-items: center; justify-content: center;">
+        <span class="material-symbols-outlined" style="font-size: 28px; color: white;">cyclone</span>
+      </div>
+      <span class="ml-3 text-2xl font-bold">CRMatic</span>
+    </a>
+
+    <!-- Navigation links -->
+    {% if user.is_authenticated %}
+      <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center gap-4">
+        <a href="{% url 'clients:client-list' %}" class="nav-link">
+          <span class="material-symbols-outlined">groups</span>
+          Clients
+        </a>
+
+        {% if user.is_organizor %}
+          <a href="{% url 'clients:client-add' %}" class="nav-link">
+            <span class="material-symbols-outlined">person_add</span>
+            Add Client
+          </a>
+        {% endif %}
+
+        <a href="{% url 'categories:category-list' %}" class="nav-link">
+          <span class="material-symbols-outlined">category</span>
+          Categories
+        </a>
+
+        {% if user.is_organizor %}
+          <a href="{% url 'agents:agent-list' %}" class="nav-link">
+            <span class="material-symbols-outlined">people</span>
+            Agents
+          </a>
+          <a href="{% url 'agents:agent-form' %}" class="nav-link">
+            <span class="material-symbols-outlined">person_add</span>
+            Add Agent
+          </a>
+        {% endif %}
+      </nav>
+
+      <!-- Profile and logout buttons -->
+      <div class="flex items-center gap-4">
+        <a href="{% url 'account_logout' %}" class="nav-link">
+          <span class="material-symbols-outlined">logout</span>
+          Log Out
+        </a>
+        <a href="{% url 'accounts:profile-page' %}" class="nav-link">
+          <span class="material-symbols-outlined">account_circle</span>
+          {{ request.user.username }}
+        </a>
+      </div>
+    {% else %}
+      <!-- Sign Up and Log In buttons -->
+      <div class="flex items-center gap-4">
+        <a href="{% url 'account_signup' %}" class="nav-link">
+          <span class="material-symbols-outlined">person_add</span>
+          Sign Up
+        </a>
+        <a href="{% url 'account_login' %}" class="nav-link">
+          <span class="material-symbols-outlined">login</span>
+          Log In
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</header>
