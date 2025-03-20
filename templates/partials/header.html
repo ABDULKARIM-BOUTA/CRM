@@ -1,56 +1,90 @@
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    .nav-link {
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    .nav-link .material-symbols-outlined {
+      font-size: 20px;
+    }
+  </style>
 </head>
 
- <div class="header">
-<header class="text-white body-font" style="background-color:#990000">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-     <a href="{% url 'landing-page' %}">
-  <div style="background-color: #ff0000; border-radius: 50%; padding: 8px; display: inline-flex; align-items: center; justify-content: center;">
-    <span class="material-symbols-outlined" style="font-size: 24px; color: white;">cyclone</span>
-  </div>
-</a> <span class="ml-3 text-xl">CRMatic</span>
+<header class="text-white body-font bg-gradient-to-r from-red-800 to-red-600 border-b border-gray-300">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
+    <!-- Logo and branding -->
+    <a href="{% url 'landing-page' %}" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+      <div style="background-color: #ff0000; border-radius: 50%; padding: 12px; display: inline-flex; align-items: center; justify-content: center;">
+        <span class="material-symbols-outlined" style="font-size: 28px; color: white;">cyclone</span>
+      </div>
+      <span class="ml-3 text-2xl font-bold">CRMatic</span>
     </a>
 
+    <!-- Navigation links -->
     {% if user.is_authenticated %}
-    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <a href="{% url 'clients:client-list' %}"> <button class=" text-white bg-red-700 border-0 py-2 px-5  hover:bg-red-600 ">Clients List</button></a>
+      <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center gap-4">
+        <a href="{% url 'clients:client-list' %}" class="nav-link">
+          <span class="material-symbols-outlined">groups</span>
+          Clients
+        </a>
 
         {% if user.is_organizor %}
-          <a href="{% url 'clients:client-add' %}"> <button class=" text-white bg-red-700 border-0 py-2 px-5  hover:bg-red-600 ">Add Client</button></a>
+          <a href="{% url 'clients:client-add' %}" class="nav-link">
+            <span class="material-symbols-outlined">person_add</span>
+            Add Client
+          </a>
         {% endif %}
 
-          <a href="{% url 'categories:category-list' %}"> <button class=" text-white bg-red-700 border-0 py-2 px-5  hover:bg-red-600 ">Categories</button></a>
+        <a href="{% url 'categories:category-list' %}" class="nav-link">
+          <span class="material-symbols-outlined">category</span>
+          Categories
+        </a>
 
-    {% if user.is_organizor %}
-        <a href="{% url 'agents:agent-list' %}"> <button class="  text-white bg-red-700 border-0 py-2 px-5  hover:bg-red-600 ">Agents List</button></a>
-        <a href="{% url 'agents:agent-form' %}"> <button class="  text-white bg-red-700 border-0 py-2 px-5  hover:bg-red-600 ">Add Agent</button></a>
-    {% endif %}
-    </nav>
+        {% if user.is_organizor %}
+          <a href="{% url 'agents:agent-list' %}" class="nav-link">
+            <span class="material-symbols-outlined">people</span>
+            Agents
+          </a>
+          <a href="{% url 'agents:agent-form' %}" class="nav-link">
+            <span class="material-symbols-outlined">person_add</span>
+            Add Agent
+          </a>
+        {% endif %}
+      </nav>
 
-    <a href="{% url 'account_logout' %}"><button   class=" mr-1 inline-flex items-center border-0 py-1 px-3 focus:outline-none bg-yellow-500 hover:bg-yellow-700 rounded text-base mt-4 md:mt-0">Log Out
-        <path d="M5 12h14M12 5l7 7-7 7"></path>
-    </button></a>
-
-    <a href="{% url 'accounts:profile-page' %}"><button  class=" mr-1 inline-flex items-center border-0 py-1 px-3 focus:outline-none bg-orange-500 hover:bg-orange-700 rounded text-base mt-4 md:mt-0">{{ request.user.username }}
-        <path d="M5 12h14M12 5l7 7-7 7"></path>
-    </button></a>
-
+      <!-- Profile and logout buttons -->
+      <div class="flex items-center gap-4">
+        <a href="{% url 'account_logout' %}" class="nav-link">
+          <span class="material-symbols-outlined">logout</span>
+          Log Out
+        </a>
+        <a href="{% url 'accounts:profile-page' %}" class="nav-link">
+          <span class="material-symbols-outlined">account_circle</span>
+          {{ request.user.username }}
+        </a>
+      </div>
     {% else %}
-      <nav class="md:ml-auto md:mr- flex flex-wrap items-center text-base justify-center"></nav>
-
-    <a href="{% url 'account_signup' %}"><button   class=" mr-1 inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-green-400 rounded text-base mt-4 md:mt-0 bg-green-600">Sign Up
-        <path d="M5 12h14M12 5l7 7-7 7"></path>
-    </button></a>
-
-      <a href="{% url 'account_login' %}"><button   class="  inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-blue-400 rounded text-base mt-4 md:mt-0 bg-blue-600">Log In
-        <path d="M5 12h14M12 5l7 7-7 7"></path>
-    </button></a>
-
-
+      <!-- Sign Up and Log In buttons -->
+      <div class="flex items-center gap-4">
+        <a href="{% url 'account_signup' %}" class="nav-link">
+          <span class="material-symbols-outlined">person_add</span>
+          Sign Up
+        </a>
+        <a href="{% url 'account_login' %}" class="nav-link">
+          <span class="material-symbols-outlined">login</span>
+          Log In
+        </a>
+      </div>
     {% endif %}
-
   </div>
 </header>
- </div>

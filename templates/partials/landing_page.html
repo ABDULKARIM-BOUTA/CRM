@@ -1,31 +1,14 @@
 {% extends 'partials/base.html' %}
 {% block content %}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <style>
-    @keyframes spin-slow {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    .animate-spin-slow {
-      animation: spin-slow 10s linear infinite;
-    }
-    .text-shadow-lg {
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-  </style>
-</head>
-
-<section class="text-gray-100 body-font bg-gradient-to-r from-red-700 to-red-900">
+<section class="text-gray-100 body-font bg-gradient-to-r from-red-800 to-red-600">
   <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <!-- Logo with Spin Animation -->
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
       <span class="material-symbols-outlined ml-10 animate-spin-slow" style="font-size: 425px; color: #e3e3e3;">cyclone</span>
     </div>
+
+    <!-- Content -->
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center space-y-6">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-bold text-white text-shadow-lg">
         Streamline Your Business Relationships
@@ -34,11 +17,18 @@
       <p class="mb-8 leading-relaxed font-medium text-gray-200">
         Manage your customers, track interactions, and grow your business effortlessly with our intuitive CRM platform. Whether you're a small business or a large enterprise, our tools are designed to help you build stronger relationships, improve productivity, and drive success.
       </p>
-      </div>
     </div>
   </div>
 </section>
 
-
+<style>
+  @keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 10s linear infinite;
+  }
+</style>
 
 {% endblock %}
