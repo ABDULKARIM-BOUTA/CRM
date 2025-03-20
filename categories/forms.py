@@ -13,7 +13,7 @@ class ClientCategoryUpdateForm(forms.ModelForm):
         model = Client
         fields = ['category']
 
-    category = forms.ModelChoiceField(queryset=Category.objects.none())
+    category = forms.ModelChoiceField(queryset=Category.objects.none(), required=False)
 
     # To override the category field so organizations can only add their categories to their clients
     def __init__(self, *args, **kwargs):

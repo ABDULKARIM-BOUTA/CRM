@@ -62,7 +62,7 @@ class AgentAssignForm(forms.ModelForm):
         model = Client
         fields = ['agent']
 
-    agent = forms.ModelChoiceField(queryset=Agent.objects.none())
+    agent = forms.ModelChoiceField(queryset=Agent.objects.none(), required=False)
 
     # To override the agent field so organizations only can assign their agents to a client
     def __init__(self, *args, **kwargs):
