@@ -45,9 +45,9 @@
           <span class="ml-auto text-white">{{client.category|title}}</span>
         </div>
 
-                              <div class="flex border-t border-gray-800 py-2">
+        <div class="flex border-t border-gray-800 py-2">
           <span class="text-black">Description</span>
-          <span class="ml-5 mt- text-white">{{client.description}}</span>
+          <span class="ml-5 text-white" style="word-wrap: break-word; max-width: 500px;">{{client.description}}</span>
         </div>
 
         {% if user.is_organizor %}
