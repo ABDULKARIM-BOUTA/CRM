@@ -1,9 +1,9 @@
-{% extends "account/email/base_message.txt" %}
-{% load account %}
-{% load i18n %}
+Hello from CRMatic!
 
-{% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktranslate with site_name=current_site.name site_domain=current_site.domain %}You're receiving this email because user {{ user_display }} has given your email address to register an account on {{ site_domain }}.{% endblocktranslate %}
+You're receiving this email because user {{ user.username }} has given your email address to register an account on CRMatic
 
-{% if code %}{% blocktranslate %}Your email verification code is listed below. Please enter it in your open browser window.{% endblocktranslate %}
+To confirm this is correct, go to:
 
-{{ code }}{% else %}{% blocktranslate %}To confirm this is correct, go to {{ activate_url }}{% endblocktranslate %}{% endif %}{% endautoescape %}{% endblock content %}
+https://thenamelessone.pythonanywhere.com/accounts/confirm-email/NA:1tw18V:9Au0vPl_E2FmarOYUaVQJqP8sSYFEr5OwT_oe-pJ97A/
+
+Thank you for using CRMatic!
