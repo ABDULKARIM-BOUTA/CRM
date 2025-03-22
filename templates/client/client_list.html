@@ -57,17 +57,30 @@
         </thead>
 
         <tbody>
-          {% for client in object_list %}
+          {% if object_list|length == 0 %}
             <tr>
-              <td class="px-4 py-3 text-white text-sm capitalize">{{ client.first_name }} {{ client.last_name }}</td>
-              <td class="px-1 py-3 text-white text-sm">{{ client.email }}</td>
-              <td class="px- py-3 text-white text-sm">{{ client.phone_number }}</td>
-              <td class="px-4 py-3 text-white text-sm">{{ client.agent }}</td>
-              <td class="w-10 text-center text-white text-sm">{{ client.category|title }}</td>
-              <td class="px-7 py-3 text-white text-sm">{{ client.sort_by_date|date:"Y-m-d" }}</td>  <!-- Updated field name -->
-              <td class="text-green-400" style="padding-right: 20px;"><a href="{% url 'clients:client-detail' client.pk %}">View</a></td>
+              <td colspan="7" class="px-4 py-3 text-center text-white">
+      <p style="font-size: 1.5rem; font-weight: bold;">You have not added any clients yet.</p>
+              <br>
+                <a href="{% url 'clients:client-add' %}">
+                <button type="submit" class="w-47.25 text-white px-1 py-2 rounded-md bg-green-600 hover:bg-green-800">Add Client +
+        </button>
+      </a>
+              </td>
             </tr>
-          {% endfor %}
+          {% else %}
+            {% for client in object_list %}
+              <tr>
+                <td class="px-4 py-3 text-white text-sm capitalize">{{ client.first_name }} {{ client.last_name }}</td>
+                <td class="px-1 py-3 text-white text-sm">{{ client.email }}</td>
+                <td class="px- py-3 text-white text-sm">{{ client.phone_number }}</td>
+                <td class="px-4 py-3 text-white text-sm">{{ client.agent }}</td>
+                <td class="w-10 text-center text-white text-sm">{{ client.category|title }}</td>
+                <td class="px-7 py-3 text-white text-sm">{{ client.sort_by_date|date:"Y-m-d" }}</td>  <!-- Updated field name -->
+                <td class="text-green-400" style="padding-right: 20px;"><a href="{% url 'clients:client-detail' client.pk %}">View</a></td>
+              </tr>
+            {% endfor %}
+          {% endif %}
         </tbody>
       </table>
     </div>
