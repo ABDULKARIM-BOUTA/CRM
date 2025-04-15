@@ -2,7 +2,8 @@
 
 a Customer Relationship Management system designed to streamline clients and agents management. Built using Python and Django, it offers a platform for businesses to manage their customer interactions effectively.
 
-#Features
+
+# Features
 
 Client Management: Add, update, and track client information seamlessly.
 
@@ -14,7 +15,8 @@ User Authentication: Secure login and registration system for users.
 
 Responsive Design: Accessible on various devices with a user-friendly interface.
 
-#Installation
+
+# Installation
 
 To set up CRMatic locally, follow these steps:
 
@@ -50,7 +52,7 @@ python manage.py runserver
 Access the application at http://127.0.0.1:8000/
 
 
-#Project Structure
+# Project Structure
 
   _crm/: Core Django project settings and configurations.
 
@@ -67,7 +69,7 @@ Access the application at http://127.0.0.1:8000/
   static/: Static files like CSS and JavaScript.
 
 
-#Technologies Used
+# Technologies Used
 
 Python, Django, AllAuth, HTML, MySQL, Tailwind
 
