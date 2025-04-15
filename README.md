@@ -73,4 +73,4 @@ Access the application at http://127.0.0.1:8000/
 
 Python, Django, AllAuth, HTML, MySQL, Tailwind
 
-Deployed on Pythonanywhere: thenamelessone.pythonanywhere.com
+Deployed on Pythonanywhere: [CRMatic](https://thenamelessone.pythonanywhere.com/)
