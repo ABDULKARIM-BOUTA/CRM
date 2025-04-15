@@ -1,7 +1,6 @@
 # CRMatic
 
-a Customer Relationship Management system designed to streamline clients and agents management. Built using Python and Django, it offers a platform for businesses to manage their customer interactions effectively.
-
+Designed and developed a Customer Relationship Management (CRM) system using Python and Django to streamline client and agent management, enabling businesses to manage customer interactions more efficiently.
 
 # Features
 
