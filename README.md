@@ -4,6 +4,10 @@ Designed and developed a Customer Relationship Management (CRM) system using Pyt
 
 ![‏‏لقطة الشاشة (6)](https://github.com/user-attachments/assets/a9bd64cf-8460-4af7-885e-46cb113a47e4)
 
+![‏‏لقطة الشاشة (7)](https://github.com/user-attachments/assets/f118f301-427a-41d1-8a34-fa1ee94ec84f)
+
+![‏‏لقطة الشاشة (8)](https://github.com/user-attachments/assets/6888a380-1833-470f-90cd-b2e1e14864b2)
+
 
 Deployed on Pythonanywhere: [CRMatic](https://thenamelessone.pythonanywhere.com/)
 
