@@ -2,6 +2,9 @@
 
 Designed and developed a Customer Relationship Management (CRM) system using Python and Django to streamline client and agent management, enabling businesses to manage customer interactions more efficiently.
 
+![‏‏لقطة الشاشة (6)](https://github.com/user-attachments/assets/a9bd64cf-8460-4af7-885e-46cb113a47e4)
+
+
 Deployed on Pythonanywhere: [CRMatic](https://thenamelessone.pythonanywhere.com/)
 
 # Features
