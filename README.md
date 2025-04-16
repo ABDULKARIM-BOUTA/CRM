@@ -2,6 +2,8 @@
 
 Designed and developed a Customer Relationship Management (CRM) system using Python and Django to streamline client and agent management, enabling businesses to manage customer interactions more efficiently.
 
+Deployed on Pythonanywhere: [CRMatic](https://thenamelessone.pythonanywhere.com/)
+
 # Features
 
 Client Management: Add, update, and track client information seamlessly.
@@ -71,5 +73,3 @@ Access the application at http://127.0.0.1:8000/
 # Technologies Used
 
 Python, Django, AllAuth, HTML, MySQL, Tailwind
-
-Deployed on Pythonanywhere: [CRMatic](https://thenamelessone.pythonanywhere.com/)
